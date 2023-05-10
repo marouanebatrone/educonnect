@@ -1,0 +1,18 @@
+{
+    "name": "marouane/educconect",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Marouane\\Educconect\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "marouane batrone"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.28"
+    }
+}
