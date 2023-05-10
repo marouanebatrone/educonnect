@@ -5,10 +5,14 @@ EduConnect is a platform that simplifies and digitizes the registration and just
 - Absence registration system
 - Absence justification system
 
-## EduConnect UML Use Case Diagram
+## EduConnect UML Use Case && entity relationship Diagrams
 <div align="center">
   <p style="text-align: center;">EduConnect UML use case diagram</p>
   <img src="styles/images/Use case Diagram.png" alt="use case diagram" width="750px" style="display: block; margin: 0 auto;"/>
+</div>
+<div align="center">
+  <p style="text-align: center;">EduConnect Entity relationship diagram</p>
+  <img src="styles/images/Entity Relationship Diagram.png" alt="use case diagram" width="750px" style="display: block; margin: 0 auto;"/>
 </div>
 
 ## Testing
