@@ -56,7 +56,7 @@ CREATE TABLE `surveillant_enseignant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `surveillant_enseignant`
+-- INSERT THESE ROWS TO 'surveillant_enseignant' TABLE FOR TEST
 --
 
 INSERT INTO `surveillant_enseignant` (`who_is`, `user_id`, `phone`, `first_name`, `last_name`, `username`, `email`, `password`, `class_id`) VALUES
