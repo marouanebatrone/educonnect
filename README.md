@@ -5,8 +5,10 @@ EduConnect is a platform that simplifies and digitizes the registration and just
 Absence registration system && 
 Absence justification system
 
-![Class Diagram](file:///C:/Users/Marouane/Documents/IT_PFE/Use%20case%20Diagram.png)
-
+<div align="center">
+  <p style="text-align: center;">EduConnect UML use case diagram</p>
+  <img src="styles/images/Use case Diagram.png" alt="use case diagram" style="display: block; margin: 0 auto;" />
+</div>
 
 # Testing
 To properly test EduConnect, follow these steps:
