@@ -2,7 +2,7 @@
 EduConnect is a platform that simplifies and digitizes the registration and justification of absences in schools.
 
 # Features
-Absence registration system
+Absence registration system && 
 Absence justification system
 
 # Testing
