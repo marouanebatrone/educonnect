@@ -14,9 +14,9 @@ require_once('dbh.inc.php');
       header("Location: ../absence.php?class_id=".$choix_class."&choix_method=mois");
       exit;
     }
-    else if ($choix_method == 'matiere')
+    else if($choix_method == 'matiere')
     {
-      header("Location: ../absence.php?class_id=".$choix_class."&choix_method=matiere");
+      header("Location: ../absence.php?class_id=".$choix_class."&choix_method=".$choix_method."");
       exit;
     }
   }

@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $stmt = $conn->prepare("SELECT * FROM eleve WHERE (username = ? OR email = ?) AND password = ?");
     $stmt->bind_param("sss", $username, $username, $password);
     $stmt->execute();
-  
+    
     $result = $stmt->get_result();
   
     if ($result->num_rows === 1) 

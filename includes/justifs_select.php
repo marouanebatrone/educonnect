@@ -16,7 +16,6 @@ try {
 // Retrieve image from the database based on the provided id parameter
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
     $stmt = $db->prepare('SELECT name, data FROM absence_verification WHERE id = ?');
     $stmt->bindParam(1, $id, PDO::PARAM_INT);
     $stmt->execute();
@@ -32,8 +31,11 @@ if (isset($_GET['id'])) {
         exit();
     }
 }
-
+else
+{
 // If the image id is invalid or not provided, redirect back to the image gallery page
-header('Location: ../justificatifs.php?dowload=failed');
+header('Location: ../justificatifs.php?download=failed');
 exit();
+}
+
 ?>

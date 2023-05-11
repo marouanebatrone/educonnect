@@ -181,7 +181,7 @@ else
                              echo '<td>' . $first_name . '</td>';
                              echo '<td>' . $last_name . '</td>';
                              echo '<td>' . $class_id . '</td>';
-                             echo '<td>' ?><a href="includes/justifs_select.php?id=<?php $image['id'] ?>"><?php echo $image['name']; ?></a><?php echo '</td>';
+                             echo '<td>' ?><a href="includes/justifs_select.php?id=<?php echo $image['id'] ?>"><?php echo $image['name']; ?></a><?php echo '</td>';
                              echo '<td>' . '<div class="display_two"><div><a href="includes/generate_permis.php?name=' . $first_name . ' ' . $last_name . '&student_id='.$student_id.'"><button type="button" class="btn btn1 btn-success">Accepter</button></a></div><div><a href="includes/generate_permis.php?id='.$image['id'].'&name='.$image['name'].'&student_id='.$student_id.'&reponse=refuse"><button type="button" class="btn btn-danger">Refuser</button></a></div></div>'.'</td>';
                              echo '</tr>';
                             }
