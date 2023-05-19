@@ -51,9 +51,8 @@ CREATE TABLE `surveillant_enseignant` (
   `username` varchar(25) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  CONSTRAINT `fk_class_id` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `class_id` varchar(30) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- INSERT THESE ROWS TO 'surveillant_enseignant' TABLE FOR TEST
@@ -114,7 +113,7 @@ INSERT INTO `eleve` (`No`, `username`, `phone`, `email`, `password`, `first_name
 --
 
 CREATE TABLE `calendrier_enseignant` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `teacher_id` int(11) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL,
   `day_of_week` varchar(20) DEFAULT NULL,
@@ -124,6 +123,7 @@ CREATE TABLE `calendrier_enseignant` (
    CONSTRAINT `calendrier_enseignant_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `surveillant_enseignant` (`id`),
    CONSTRAINT `calendrier_enseignant_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- INSERT THESE ROWS TO 'calendrier_enseignant' TABLE FOR TEST
@@ -150,8 +150,7 @@ CREATE TABLE `absence` (
   `Cne` varchar(30) DEFAULT NULL,
   `Classe` varchar(30) DEFAULT NULL,
   `Nombre_heures` int(20) DEFAULT NULL,
-  `Mois` varchar(30) DEFAULT NULL,
-  CONSTRAINT `fk_class_id` FOREIGN KEY (`student_id`) REFERENCES `eleve` (`id`)
+  `Mois` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
