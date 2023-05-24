@@ -87,6 +87,9 @@ ul.pagination
 {
   margin-top: 5px;
 }
+.italic-option {
+    font-style: italic;
+  }
 </style>
 <body>
 <?php include 'header.php';?>
@@ -133,10 +136,23 @@ ul.pagination
             echo 
             '<div class="d-inline-block">
             <select class="form-select" name="choix_method">
-              <option value="mois">Par mois</option>
-              <option value="matiere">Par matière</option>
+            <option value="empty" class="italic-option">Sélectionnez par mois</option>  
+            ';
+            $months = 
+            [
+              'January', 'February', 'March', 'April', 'May', 'September', 'October', 'November', 'December'
+            ];
+        
+            foreach ($months as $month) {
+              echo '<option value="' . $month . '">' . $month . '</option>';
+            }
+          ?>
+          <option value="empty"></option>    
+          <option value="empty" class="italic-option">Sélectionnez par matière</option>            
+          <option value="matiere">Par matière</option>
             </select>
-            </div>';
+            </div>
+          <?php 
            } 
            if($_SESSION['user_role'] == 'eleve')
            {
@@ -165,7 +181,7 @@ ul.pagination
             $choix_method = $_GET['choix_method'];
             $class_id = $_GET['class_id'];
 
-            if($choix_method == 'mois') //If the user selects y mois
+            if(in_array($choix_method, $months)) //If the user selects a month
             {
 
            //Pagination 
@@ -184,11 +200,11 @@ ul.pagination
             // Calculate offset
             $offset = ($currentPage - 1) * $LignesParPage;
 
-              $stmt = "SELECT * FROM absence WHERE Classe = 'class" . $class_id . "' LIMIT $LignesParPage OFFSET $offset;";
+              $stmt = "SELECT * FROM absence WHERE Classe = 'class" . $class_id . "' AND Mois = '$choix_method' LIMIT $LignesParPage OFFSET $offset;";
               $student_list = $conn->query($stmt);
 
             // Obtenir le nombre total des lignes de la base de donee
-            $totalRecords = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM absence WHERE Classe = 'class" . $class_id . "' GROUP BY student_id;"));
+            $totalRecords = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM absence WHERE Classe = 'class" . $class_id . "' AND Mois = '$choix_method' GROUP BY student_id;"));
             
             // Calculer le nombre total de pages
             $totalPages = ceil($totalRecords / $LignesParPage);
@@ -200,7 +216,7 @@ ul.pagination
                 echo '
                 <section class="intro">
                  <div class="gradient-custom-1 h-100">
-                 <h6 class="class_name">Le tableau d\'absence de la classe '.$class_id.' pour chaque mois:</h6>
+                 <h6 class="class_name">Le tableau d\'absence de la classe '.$class_id.' pour le mois '.$choix_method.':</h6>
                   <div class="mask d-flex align-items-center h-100">
                     <div class="container">
                       <div class="row justify-content-center">
@@ -214,15 +230,14 @@ ul.pagination
                                   <th scope="col">Nom</th>
                                   <th scope="col">Cne</th>
                                   <th scope="col">Nombre d\'heures</th>
-                                  <th scope="col">Mois</th>
                                 </tr>
                               </thead>
                               <tbody>';
                         foreach ($students as $student) 
                               {
                                 //Selection of absence for each student for each month
-                                $stmt = $conn->prepare("SELECT *, SUM(Nombre_heures) AS total_heurs FROM absence WHERE student_id = ? GROUP BY Mois");
-                                $stmt->bind_param("i", $student['student_id']);
+                                $stmt = $conn->prepare("SELECT *, SUM(Nombre_heures) AS total_heurs FROM absence WHERE student_id = ? AND Mois = ?");
+                                $stmt->bind_param("is", $student['student_id'], $choix_method);
                                 $stmt->execute();
                                 $result = $stmt->get_result();
   
@@ -242,7 +257,6 @@ ul.pagination
                                   echo '<td>' . $row['Nom'] . '</td>';
                                   echo '<td>' . $row['Cne'] . '</td>';
                                   echo '<td>' . $row['total_heurs'] . '</td>';
-                                  echo '<td>' . $row['Mois'] . '</td>';
                                   echo '</tr>';
                                 }
                               }

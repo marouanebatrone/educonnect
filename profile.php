@@ -137,6 +137,7 @@ color:#69707a;
                         <h5><?php echo $userData['first_name'] . " " . $userData['last_name']; ?></h5>
                         <?php
                         if($_SESSION['user_role'] == 'teacher') echo "<h6>Professeur</h6>";
+                        if($_SESSION['user_role'] == 'surveillant') echo "<h6>Surveillant</h6>";
                         if($_SESSION['user_role'] == 'eleve') echo "<h6>Éleve</h6>";
                         ?>
                     </div>

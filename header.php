@@ -7,9 +7,10 @@
   
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li class="lielement">
-            <a href="/educonnect/absence.php" class="nav-link px-2 <?php echo ($_SERVER['REQUEST_URI'] == '/educonnect/absence.php') ? 'link-secondary' : ''; ?>">Voir l'absence</a>
+            <a href="/educonnect/absence.php" class="nav-link px-2 <?php echo ($_SERVER['REQUEST_URI'] == '/educonnect/absence.php') ? 'link-secondary' : ''; ?>">Tableau d'absence</a>
           </li>
           <?php if($_SESSION['user_role'] == 'surveillant') { ?>
+            <li class="lielement"><a href="absence_visualize.php" class="nav-link px-2 <?php echo ($_SERVER['REQUEST_URI'] == '/educonnect/absence_visualize.php') ? 'link-secondary' : ''; ?>">Visualiser l'absence</a></li>
             <li class="lielement"><a href="justificatifs.php" class="nav-link px-2 <?php echo ($_SERVER['REQUEST_URI'] == '/educonnect/justificatifs.php') ? 'link-secondary' : ''; ?>">Voir les justificatifs</a></li>
             <?php } else if($_SESSION['user_role'] == 'eleve') { ?>
               <li class="lielement"><a href="justification.php" class="nav-link px-2 <?php echo ($_SERVER['REQUEST_URI'] == '/educonnect/justification.php') ? 'link-secondary' : ''; ?>">Justification d'absence</a></li>

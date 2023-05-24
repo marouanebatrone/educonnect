@@ -200,7 +200,7 @@ tbody td
                 }
                 else
                 {
-                  echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune notification ou ou tâches à faire!</h6>';
+                  echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune tâche à faire!</h6>';
                 }
          }
          // we check if user logged in is a surveillant
@@ -298,7 +298,7 @@ tbody td
           }
           else
           {
-            echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune notification ou tâches à faire!</h6>';
+            echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune tâche à faire!</h6>';
           }
          }
          // we check if user logged in is a student
@@ -347,11 +347,11 @@ tbody td
 
             if($rowCount >= 1)
           {
-            echo '<h6 class="makeinfo2"><a href="includes/permis_select.php?student_id='.$_SESSION['user_id'].'">Voir</a>&nbsple justificatif de votre dernière absence</h6>';
+            echo '<h6 class="makeinfo2"><a href="includes/permis_select.php?student_id='.$_SESSION['user_id'].'">Voir</a>&nbspvotre permis d\'entrée de votre dernière absence</h6>';
           }
           else
           {
-            echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune notification ou ou tâches à faire!</h6>';
+            echo '<h6 class="makeinfo2">Actuellement, vous n\'avez aucune tâche à faire!</h6>';
           }
           }
          }
