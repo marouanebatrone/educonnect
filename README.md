@@ -11,10 +11,6 @@ EduConnect is a platform that simplifies and digitizes the registration and just
   <img src="styles/images/Use case Diagram.png" alt="use case diagram" width="750px" style="display: block; margin: 0 auto;"/>
 </div>
 <br>
-<div align="center">
-  <p style="text-align: center;">EduConnect UML entity relationship diagram</p>
-  <img src="styles/images/Entity Relationship Diagram.png" alt="use case diagram" width="750px" style="display: block; margin: 0 auto;"/>
-</div>
 
 ## Testing
 To properly test EduConnect, follow these steps:
